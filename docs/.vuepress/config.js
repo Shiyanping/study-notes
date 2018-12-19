@@ -30,7 +30,7 @@ module.exports = {
       {
         title: '服务器知识概况',
         collapsable: false,
-        children: ['service/View-Model',]
+        children: ['service/View-Model', 'service/simple-understand']
       }
       // {
       //   title: '前端库/框架',
