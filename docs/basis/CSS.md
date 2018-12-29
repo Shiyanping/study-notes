@@ -41,7 +41,7 @@ no-image 时代：不超过纯色为 2 的图像尽量不使用图片。
 ## CSS 规范
 
 CSS 也应该制定一定的规范，不符合规范的 CSS 不能上线。
-[csslint.net/#](csslint.net/#)
+[csslint.net/#](http://csslint.net/#)
 
 ![](../images/15447064337882/15447127657143.jpg)
 

@@ -30,7 +30,7 @@ module.exports = {
       {
         title: '服务器知识概况',
         collapsable: false,
-        children: ['service/View-Model', 'service/simple-understand']
+        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server']
       }
       // {
       //   title: '前端库/框架',
