@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>抛物线</title>
+    <style>
+      /* 垂直运动 */
+      .wrapper {
+        animation: ver-animation 1s ease-out 0.5s infinite;
+      }
+      .content {
+        position: absolute;
+        top: 250px;
+        width: 30px;
+        height: 30px;
+        background: green;
+        border-radius: 50%;
+        animation: hor-animation 1s ease-out 0.5s infinite;
+        animation-timing-function: cubic-bezier(0.76, 0.31, 1, 0.64);
+      }
+      @keyframes hor-animation {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(200px);
+        }
+      }
+      @keyframes ver-animation {
+        0% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(-200px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper"><div class="content"></div></div>
+  </body>
+</html>

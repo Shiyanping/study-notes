@@ -25,12 +25,17 @@ module.exports = {
       {
         title: '基础知识',
         collapsable: false,
-        children: ['basis/HTML', 'basis/CSS', 'basis/JS', 'basis/jQuery']
+        children: ['basis/HTML', 'basis/CSS', 'basis/JS', 'basis/jQuery', 'basis/ES6']
       },
       {
-        title: '服务器知识概况',
+        title: '后端知识概况',
         collapsable: false,
-        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server']
+        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server', 'service/php']
+      },
+      {
+        title: '习题集',
+        collapsable: false,
+        children: ['question/JS']
       }
       // {
       //   title: '前端库/框架',
