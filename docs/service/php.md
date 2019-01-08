@@ -1,19 +1,42 @@
 # php 基础
 
-php 属于脚本语言，上手比较容易，只是记录自己开发中用到的笔记，详细的资料可以到[菜鸟教程](http://www.runoob.com/php/php-tutorial.html)中找。
+php 上手比较容易，可以通过[菜鸟教程](http://www.runoob.com/php/php-tutorial.html)中学习。
 
-## 引用其他 php 文件
+![](http://pkskks1su.bkt.clouddn.com/15466815349395.jpg)
+
+## php 基本概念
+
+### 数据类型
+
+php 中的数据类型和 js 的数据类型基本相同，将 js 中的`Number`区分成了浮点型和整型。
+
+- 字符串
+
+  字符串拼接的方法有两种：
+
+  1. 使用`.`拼接： `echo("hello " . $name);`
+
+  2. 使用`{}`中书写变量的方式拼接：`echo "bye bye {$this -> name}";`
+
+- 整型
+- 浮点型
+- 布尔型
+- 数组
+- 对象
+- NULL
+
+### 引用其他 php 文件
 
 - include
 - require
 - include_once
 - require_once
 
-## 变量
+### 变量
 
 定义变量时必须使用`$`。
 
-使用`isset($变量名)`，可以判断是否定义了变量。
+使用`isset($变量名)`，可以判断是否定义了变量。私有变量和被保护的变量判断结果是`false`。
 
 在函数外定义的变量，函数内部如果想使用的话，需要用到`globel`
 
@@ -27,15 +50,25 @@ $GLOBALS['a'] = '我是全局变量'
 echo $GLOBALS['a'];
 ```
 
-## 数组
+### 常量
 
-### 定义数组
+设置 php 中的常量使用`define`来定义，在定义的时候可以设置是否区分大小写。
+
+区分大小写的：`define("GREETING", "欢迎访问 Runoob.com");`
+
+不区分大小写的：`define("GREETING", "欢迎访问 Runoob.com", true);`
+
+在 php 中定义常量后，默认是全局变量，可以再任何一个脚本的任何地方去使用。
+
+### 数组
+
+#### 定义数组
 
 ```php
 $arr = array('first', 'second');
 ```
 
-### 获取数组长度
+#### 获取数组长度
 
 ```php
 <?php
@@ -44,7 +77,7 @@ echo count($cars);
 ?>
 ```
 
-### 遍历数组
+#### 遍历数组
 
 ```php
 <?php
@@ -59,7 +92,7 @@ for($x=0;$x<$arrlength;$x++)
 ?>
 ```
 
-### 创建关联数组
+#### 创建关联数组
 
 ```php
 <?php
@@ -68,7 +101,7 @@ echo json_encode($age);
 ?>
 ```
 
-### 遍历关联数组
+#### 遍历关联数组
 
 ```php
 <?php
@@ -83,6 +116,351 @@ foreach($age as $x=>$x_value)
 ```
 
 [传送门](http://www.runoob.com/php/php-arrays.html)
+
+## php 面向对象
+
+### 面向对象编程。
+
+> 面向对象的特点：封装，继承，多态。
+
+面向对象编程的根本是类，所以 php 中也可以定义类，并且去使用类。
+
+php 中定义类的方式：
+
+![](http://pkskks1su.bkt.clouddn.com/15466086232377.jpg)
+
+定义好类之后如何使用呢，通过`new`的方式实例化类，类中可以定义属性和方法，其中还有`$this`，和 JS 中的`this`有相同的作用。
+
+**例：**
+
+```php
+<?php
+  class Person
+  {
+      public $age;
+      public function say($word)
+      {
+          echo "she say {$word}";
+      }
+      public function info()
+      {
+          $this -> say("Hi");
+          return $this -> age;
+      }
+  }
+
+  $xiaohong = new Person();
+  $xiaohong -> age = 22;
+  $age = $xiaohong -> info();
+  echo "<br>";
+  echo $age;
+?>
+```
+
+### 构造方法和析构方法
+
+类中有两个方法会自动执行，一个是构造方法，一个是析构方法，构造方法会在类被实例化的时候执行，析构方法会在类被销货，也就是不使用的时候执行。构造方法和析构方法都符合先实例化先执行的规范。
+
+**例：**
+
+```php
+<?php
+  class Person
+  {
+      public function __construct($name, $age)
+      {
+          // 当这个类new的时候会自动执行
+          echo("hello " . $name);
+          echo "<br>";
+          $this -> age = $age;
+          $this -> name = $name;
+      }
+
+      public function getAge()
+      {
+          return $this -> age;
+      }
+
+      public function __destruct()
+      {
+          // 用途：可以进行资源的释放操作，比如数据库关闭操作
+          // 对象被销毁的时候会执行，没有代码运行的时候执行
+          echo "bye bye {$this -> name}";
+          echo "<br>";
+      }
+  }
+
+  $xiaoming = new Person("xiaoming", 19);
+  $xiaohong = new Person("xiaohong", 20);
+  echo $xiaoming -> getAge();
+  echo "<br>";
+?>
+```
+
+对应输出的值是：
+![](http://pkskks1su.bkt.clouddn.com/15466119894594.jpg)
+
+### 面向对象的封装
+
+在类中其实不光有`public`方法，还有`private`和`protected`方法，在封装一个类的时候，有些方法或者属性不希望在外边拿到，就可以定义成`private`或`protected`。
+
+**例：**
+
+```php
+<?php
+class Person
+{
+    public $name = "yanping";
+    private $age = 25;
+    protected $money = 10;
+
+    // 私有的成员方法，不能在类外部直接被访问
+    private function getAge()
+    {
+        return $this -> age;
+    }
+
+    // 被保护的成员，不能在类外部直接被访问
+    protected function getMoney()
+    {
+        return $this -> money;
+    }
+
+    public function userCard()
+    {
+        echo "年龄：" . $this -> getAge() . "存款：" . $this -> getMoney();
+    }
+}
+
+$xiaowang = new Person();
+// 不能使用私有和受保护的属性及方法
+echo $xiaowang -> age; // 会报错
+echo $xiaowang -> getMoney(); // 同样也会报错
+echo $xiaowang -> userCard();
+?>
+```
+
+如果希望在修改或者获取私有、被保护变量时触发一些附加的操作，比如给使用者一些提示，那我们可以使用下面的两个魔术方法。
+
+- `__set()`：当在外部对私有或者被保护的变量进行赋值时会触发。
+- `__get()`：当在外部对私有或者被保护的变量进行获取时会触发。
+
+```php
+<?php
+class Person
+{
+    public $name = "yanping";
+    private $age = 25;
+    protected $money = 10;
+
+    // 私有的成员方法，不能在类外部直接被访问
+    private function getAge()
+    {
+        return $this -> age;
+    }
+
+    // 被保护的成员，不能在类外部直接被访问
+    protected function getMoney()
+    {
+        return $this -> money;
+    }
+
+    public function userCard()
+    {
+        echo "年龄：" . $this -> getAge() . "存款：" . $this -> getMoney();
+    }
+
+    public function __set($key, $value) {
+      if($key == "age" && $value == 25) {
+        $this -> age = "女生的年龄最好不要随意修改<br>";
+      }
+    }
+
+    public function __get($key) {
+      if($key == "age") {
+        return "<br>就不告诉你";
+      }
+    }
+}
+
+$xiaowang = new Person();
+$xiaowang -> age = 25;
+echo $xiaowang -> userCard();
+echo $xiaowang -> age;
+?>
+```
+
+还有两个类中会触发的魔术方法：
+
+- `__isset()`：在外部使用`isset()`判断一个变量是否存在时，会触发类中的`__isset()`方法。
+- `__unset()`：在外部使用`unset()`删除一个私有或者被保护的变量时，会触发`__unset()`方法。虽然在外部不能操作私有或者被保护的变量，也就是不能删除，但是触发了`__unset()`方法后，我们可以在`__unset()`方法中对私有或者被保护的变量进行操作。
+
+### php 的继承和多态
+
+php 中只允许单继承，不能多继承，就是一个子类只能继承一个父类。
+
+![](http://pkskks1su.bkt.clouddn.com/15466152938769.jpg)
+
+在子类中允许对父类的方法进行重写（覆盖）和重载。
+
+在子类中，使用`parent`重载父类的属性或者方法。
+
+- parent::construct()
+- parent::fun()
+
+**例：**
+
+```php
+<?php
+class Person
+{
+    public $name;
+    private $age;
+    protected $money;
+
+    public function __construct($name, $age, $money)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->money = $money;
+    }
+
+    public function getCard()
+    {
+        echo "{$this->name}今年{$this->age}岁，有{$this->money}钱";
+    }
+}
+
+class Child extends Person
+{
+    public function __construct($name, $age, $money)
+    {
+        parent::__construct($name, $age, $money);
+    }
+    // 重写父类的getCard方法
+    public function getCard()
+    {
+        // 子类内部可以访问父类的被保护变量
+        echo($this->money);
+        // 子类不能访问父类中私有的变量，会报错
+        // echo($this->age);
+        parent::getCard();
+    }
+}
+
+$xiaoming = new Child('xiaoming', 20, 1000);
+$xiaoming->getCard();
+?>
+```
+
+### 抽象方法与接口
+
+#### 抽象方法和抽象类
+
+抽象方法：类中有一个方法，但是没有方法体，也就是没有花括号，直接以分号结束，必须使用`abstract`定义。
+
+**如：** `public abstract function fun();`
+
+抽象类：包含抽象方法的类，抽象类也必须使用`abstract`定义。
+
+抽象类的特点：
+
+- 不能实例化，其实就是不能 new
+- 若想使用抽象类，必须定义一个类去继承这个抽象类，并覆盖父类的抽象方法。
+- 含有抽象方法的类一定是抽象类
+- 抽象类不一定一定要含有抽象方法，可以含有普通方法
+
+```php
+<?php
+/**
+ * 1.含有抽象方法的类一定是抽象类
+ * 2.抽象类不一定含有抽象方法
+ * 3.抽象类可以含有普通的方法
+ * 4.抽象类不能被实例化，必须由一个子类去继承 并且把抽象类的抽象方法都实现
+ */
+abstract class Person
+{
+    abstract public function eat();
+}
+
+class Man extends Person
+{
+    public function eat()
+    {
+        echo "man eat";
+    }
+}
+$man = new Man();
+$man -> eat();
+?>
+```
+
+#### 接口
+
+![](http://pkskks1su.bkt.clouddn.com/15466762225908.jpg)
+
+接口是对动作的抽象，表示对象能做什么。
+
+抽象类是根源的抽象。
+
+> 男人和女人都是人，人是一个抽象类；人和动物都会吃东西，吃东西可以表示成一个接口。
+
+接口的特点：
+
+- 接口一定要使用 interface
+- 接口中可以定义常量
+- 接口中定义的方法都是抽象方法，不需要使用 abstract
+- 接口也不能被实例化，需要一个类通过 implements 去实现它
+- 一个类继承多个类，但是一个类可以实现多个接口
+- 常量和静态方法可以直接通过类加::的形式去使用
+
+```php
+<?php
+  /**
+   * 接口一定要使用 interface
+   * 接口中可以定义常量
+   * 接口中定义的方法都是抽象方法，不需要使用 abstract
+   * 接口也不能被实例化，需要一个类通过 implements 去实现它
+   * 一个类继承多个类，但是一个类可以实现多个接口
+   * 常量和静态方法可以直接通过类加::的形式去使用
+   */
+  interface Person
+  {
+      const NAME = "xiaoshi";
+      public function eat();
+      public function say();
+  }
+
+  interface Study
+  {
+      public function studyEnglish();
+  }
+
+  class Student implements Person, Study
+  {
+      public function eat()
+      {
+          echo "吃饭";
+      }
+      public function say()
+      {
+          echo "说话";
+      }
+      public function studyEnglish()
+      {
+          echo self::NAME . "说英语";
+      }
+      public static function testStatic()
+      {
+          echo "我是静态方法";
+      }
+  }
+
+  $xiaoshi = new Student;
+  $xiaoshi->studyEnglish();
+  echo Student::testStatic();
+?>
+```
 
 ## 数据库相关
 

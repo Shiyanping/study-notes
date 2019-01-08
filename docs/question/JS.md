@@ -215,11 +215,36 @@ a.split('').forEach(function(item) {
 });
 ```
 
-#### 8. 请在下面写出 JavaScript 面向对象编程的混合式继承。并写出 ES6 版本的继承。  要求:汽车是父类，Cruze 是子类。父类有颜色、价格属性，有售卖的方法。Cruze 子 类实现父类颜色是红色，价格是 140000,售卖方法实现输出如下语句:将 红色的 Cruze 买给了小王价格是 14 万
+#### 8. 请在下面写出 JavaScript 面向对象编程的混合式继承。并写出 ES6 版本的继承。要求:汽车是父类，Cruze 是子类。父类有颜色、价格属性，有售卖的方法。Cruze 子 类实现父类颜色是红色，价格是 140000,售卖方法实现输出如下语句:将 红色的 Cruze 买给了小王价格是 14 万
 
 **答：**
 
+ES5：
+
 ```js
+function Car(color, price) {
+  this.color = color;
+  this.price = price;
+}
+Car.prototype.buy = function() {
+  console.log('将' + this.color + '的 Car 卖给了小王价格是' + this.price + '万');
+};
+
+function Cruze(color, price) {
+  Car.call(this, color, price);
+}
+
+var _prototype = Object.create(Car.prototype);
+_prototype.constructor = Cruze;
+Cruze.prototype = _prototype;
+
+Cruze.prototype.buy = function() {
+  console.log('将' + this.color + '的 Cruze 卖给了小王价格是' + this.price + '万');
+};
+
+var bmw = new Cruze('红色', 14);
+console.log(bmw);
+console.log(bmw.buy());
 ```
 
 #### 9. 请你写出如何利用 EcmaScript6/7(小 Demo)优化多步异步嵌套的代码

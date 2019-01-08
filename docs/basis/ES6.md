@@ -1,6 +1,10 @@
 # ES6 常用语法
 
+[TOC]
+
 **主要总结一些 ES6 常用的语法及知识点，其次就是总结一下在 ES6 使用过程需要注意的重点**
+
+![](http://pkskks1su.bkt.clouddn.com/15468287731380.jpg)
 
 ## let 和 const
 
@@ -330,7 +334,7 @@ let html = `<div>
 
 ## 箭头函数
 
-> 不改变 this 的指向，this 指向定义时候的实例
+不改变 this 的指向，this 指向定义时候的实例
 
 ```
 () => {}
@@ -338,7 +342,7 @@ let html = `<div>
 
 ## 默认参数
 
-### 默认参数
+### 默认参数的使用方法
 
 ```javascript
 function f(x, y = 7, z = 21) {
@@ -413,31 +417,45 @@ var arr = [2, '合并', ...params];
 console.log(arr);
 ```
 
-## 继承
+## for...of
+
+`for...of`循环会直接拿到值，而不是拿到数组的索引。但是对象不能使用`for...of`。
+
+```js
+const arr = [1, 2, 3];
+for (const item of arr) {
+  console.log(item);
+}
+```
+
+## class
+
+### 继承
 
 在 es5 中继承都是绑定原型，实现继承
 
 例子：
 
 ```js
-function Animal() {
-  this.eat = function() {
-    console.log('Animal eat');
-  };
+function Animal(color) {
+  this.color = color;
+}
+Animal.prototype.eat = function() {
+  console.log(this.color + '色的Animal eat');
+};
+
+function Dog(color) {
+  Animal.call(this, color);
 }
 
-function Dog() {
-  this.bark = function() {
-    console.log('Dog bark');
-  };
-}
+var _prototype = Object.create(Animal.prototype);
+_prototype.constructor = Dog;
+Dog.prototype = _prototype;
 
-// 绑定原型，实现继承
-Dog.prototype = new Animal();
+var hashiqi = new Dog('red');
 
-var hashiqi = new Dog();
+console.log(hashiqi);
 
-hashiqi.bark();
 hashiqi.eat();
 ```
 
@@ -450,18 +468,22 @@ class Animal {
   }
 
   eat() {
-    alert(this.name + 'eat');
+    alert(`${this.name} eat`);
   }
 }
 
 class Dog extends Animal {
   constructor(name) {
     super(name);
-    this.name = name;
+  }
+
+  eat() {
+    super.eat();
+    console.log('eat方法重写咯');
   }
 
   say() {
-    alert(this.name + 'say');
+    alert(`${this.name} say`);
   }
 }
 
@@ -471,9 +493,141 @@ dog.say();
 dog.eat();
 ```
 
-## 重点问题
+### class 中的 set，get
 
-**有时候前端面试可能会用到哦**
+在 class 中可以对一个属性定义 set 和 get 方法。
+
+```js
+class Car {
+  constructor() {
+    this.arr = [];
+  }
+  set menu(data) {
+    this.arr.push(data);
+  }
+  get menu() {
+    return this.arr;
+  }
+}
+
+let bmw = new Car();
+bmw.menu = '底盘';
+console.log(bmw.menu);
+```
+
+### class 中的 static 方法
+
+在 class 中可以像 php 的面向对象一样，定义一个静态方法。在访问静态方法时不需要`new`，可以直接调用。
+
+```js
+class Car {
+  constructor() {
+    this.arr = [];
+  }
+  set menu(data) {
+    this.arr.push(data);
+  }
+  get menu() {
+    return this.arr;
+  }
+  static init() {
+    console.log('这个是init方法');
+  }
+}
+
+Car.init();
+```
+
+## Set，Map
+
+### Set
+
+Set 属于一个构造函数，需要使用`new`关键字去定义。
+
+new 之后生成的 Set 包含了很多方法和属性：
+
+1. 在 Set 对象中可以自动去重。
+
+2. Set 对象不是一个数组，可以使用扩展运算符将 Set 对象格式化成数组。
+
+3. 可以使用`add()`方法向`new`出来的 Set 对象添加内容。
+
+4. Set 对象可以使用`size`属性可以获取长度。
+
+5. 使用`has()`方法去判断对象中是否包含某一项。
+
+6. 使用`delete()`方法去删除某一项。
+
+7. 使用`clear()`方法清空 Set 对象。
+
+**例：**
+
+```js
+let arr = new Set('123');
+arr.add('4');
+arr.add('4');
+
+console.log(arr); // Set(4) {"1", "2", "3", "4"}
+
+console.log([...arr]); // [1, 2, 3, 4]
+
+console.log(arr.size); // 4
+
+console.log(arr.has('4')); // true
+
+arr.delete('1');
+console.log(arr); // Set(3) {"2", "3", "4"}
+
+for (const item of arr) {
+  console.log(item); // 循环显示出每一项
+}
+
+arr.clear();
+console.log(arr); // Set(0) {}
+```
+
+### Map
+
+Map 和 Set 其实是类似的，都要使用`new`实例化一个对象，只不过 Map 中，每一项的类型（key）可以是多种多样的。
+
+**例：**
+
+```js
+let map = new Map();
+let fun = function() {};
+let obj = {};
+map.set(fun, '🍌');
+map.set(obj, '🍎');
+console.log(map);
+```
+
+使用`set`给 Map 添加`key-value`，Map 的 key 可以是函数，也可以是对象。
+
+![](http://pkskks1su.bkt.clouddn.com/15468275661338.jpg)
+
+Map 对象也拥有像 Set 对象一些特有的方法和属性，比如`has()`，`delete()`，`get()`，`size`，`clear()`。
+
+```js
+let map = new Map();
+let fun = function() {};
+let obj = {};
+map.set(fun, '🍌');
+map.set(obj, '🍎');
+
+console.log(map.size); // 2
+
+console.log(map.has(fun)); // true
+
+console.log(map.get(fun)); // 🍌
+
+map.delete(fun);
+console.log(map); // Map(1) {{…} => "🍎"}
+
+map.clear();
+console.log(map); // Map(0) {}
+```
+
+## 重点问题
 
 ### Class 和普通构造函数有什么区别
 
