@@ -1,8 +1,7 @@
 {
   "scripts": {
     "start": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "gh-pages -d dist",
-    "deploy:build": "npm run build && npm run deploy"
+    "predeploy": "vuepress build docs",
+    "deploy": "gh-pages -d dist"
   }
 }

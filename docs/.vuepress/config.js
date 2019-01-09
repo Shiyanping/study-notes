@@ -14,27 +14,41 @@ module.exports = {
     nav: [
       {
         text: '博客',
-        link: 'https://shiyanping.github.io/'
+        link: 'http://www.shiyanping.top/'
       },
       {
-        text: '简历',
-        link: 'https://shiyanping.github.io/resume/'
+        text: '我的相关',
+        items: [
+          {
+            text: '简历',
+            link: 'http://www.shiyanping.top//resume/'
+          },
+          {
+            text: '前端工具集',
+            link: 'http://www.shiyanping.top/fe-tool'
+          }
+        ]
       }
     ],
     sidebar: [
       {
         title: '基础知识',
-        collapsable: false,
-        children: ['basis/HTML', 'basis/CSS', 'basis/JS', 'basis/jQuery', 'basis/ES6']
+        collapsable: true,
+        children: ['basis/HTML', 'basis/CSS', 'basis/JS', 'basis/jQuery', 'basis/ES6', 'basis/qa']
+      },
+      {
+        title: 'Node 知识点',
+        collapsable: true,
+        children: ['node/packageJson']
       },
       {
         title: '后端知识概况',
-        collapsable: false,
+        collapsable: true,
         children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server', 'service/php']
       },
       {
         title: '习题集',
-        collapsable: false,
+        collapsable: true,
         children: ['question/JS']
       }
       // {
