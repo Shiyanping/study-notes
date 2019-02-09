@@ -11,6 +11,7 @@ module.exports = {
     docsBranch: 'vuepress',
     editLinkText: '欢迎大家来补充',
     lastUpdated: '上次更新',
+    sidebarDepth: 1,
     nav: [
       {
         text: '博客',
@@ -32,45 +33,50 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: '基础知识',
+        title: '你不知道的 JavaScript',
         collapsable: true,
-        children: ['basis/HTML', 'basis/CSS', 'basis/JS', 'basis/jQuery', 'basis/ES6', 'basis/qa']
+        children: ['JavaScript/type-of-data', 'JavaScript/scope-closure', 'JavaScript/prototype', 'JavaScript/async', 'JavaScript/strict-json', 'JavaScript/ES6']
       },
       {
-        title: 'Node 知识点',
+        title: 'CSS 的世界',
         collapsable: true,
-        children: ['node/packageJson']
+        children: ['css/CSS']
+      },
+      {
+        title: '框架全解析',
+        collapsable: true,
+        children: ['frames/jQuery', 'frames/mvvm', 'frames/virtual-dom', 'frames/vue-basic', 'frames/vue-animation', 'frames/React']
       },
       {
         title: '后端知识概况',
         collapsable: true,
-        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server', 'service/php']
+        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server']
+      },
+      {
+        title: 'Node 半知半解',
+        collapsable: true,
+        children: ['node/Node', 'node/mvc', 'node/Express', 'node/Koa', 'node/package-json', 'node/npm']
+      },
+      {
+        title: '世界上最好的语言 PHP',
+        collapsable: true,
+        children: ['php/php', 'php/Yii']
+      },
+      {
+        title: '网络相关',
+        collapsable: true,
+        children: ['internet/http']
+      },
+      {
+        title: '其他补充知识',
+        collapsable: true,
+        children: ['others/HTML', 'others/QA', 'others/function-program']
       },
       {
         title: '习题集',
         collapsable: true,
         children: ['question/JS']
       }
-      // {
-      //   title: '前端库/框架',
-      //   collapsable: false,
-      //   children: ['library/library', 'library/frame']
-      // },
-      // {
-      //   title: '学习资源',
-      //   collapsable: false,
-      //   children: ['study/document', 'study/website', 'study/books', 'study/team']
-      // },
-      // {
-      //   title: '博客',
-      //   collapsable: false,
-      //   children: ['blog/noMyBlog', 'blog/myBlog']
-      // },
-      // {
-      //   title: '其他',
-      //   collapsable: false,
-      //   children: ['other/language', 'other/js/', 'other/css/']
-      // }
     ]
   }
 };

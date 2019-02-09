@@ -1,7 +1,5 @@
 # package.json 使用指南
 
-[[toc]]
-
 ## 1. 概述
 
 一般的 node 项目，或者依据 node 搭建的项目，项目的根目录下都会有一个`package.json`文件，`package.json`中定义了项目所需要的各种模块和项目的配置信息。
@@ -42,7 +40,7 @@
 
 **如：**
 
-![](http://pkskks1su.bkt.clouddn.com/15469149827642.jpg)
+![](http://cdn.jinyueyue.cn/15469149827642.jpg)
 
 蓝框框起来的命令，在使用的时候都不需要写`run`，直接输入`npm XX`即可运行指定的命令。
 
@@ -65,7 +63,7 @@
 
 小黑窗中执行的命令就如下图所示：
 
-![](http://pkskks1su.bkt.clouddn.com/15469156775730.jpg)
+![](http://cdn.jinyueyue.cn/15469156775730.jpg)
 
 ### 2.2 && 和 & 的使用
 

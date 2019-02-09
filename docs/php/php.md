@@ -2,7 +2,7 @@
 
 php 上手比较容易，可以通过[菜鸟教程](http://www.runoob.com/php/php-tutorial.html)中学习。
 
-![](http://pkskks1su.bkt.clouddn.com/15466815349395.jpg)
+![](http://cdn.jinyueyue.cn/15466815349395.jpg)
 
 ## php 基本概念
 
@@ -127,7 +127,7 @@ foreach($age as $x=>$x_value)
 
 php 中定义类的方式：
 
-![](http://pkskks1su.bkt.clouddn.com/15466086232377.jpg)
+![](http://cdn.jinyueyue.cn/15466086232377.jpg)
 
 定义好类之后如何使用呢，通过`new`的方式实例化类，类中可以定义属性和方法，其中还有`$this`，和 JS 中的`this`有相同的作用。
 
@@ -198,7 +198,7 @@ php 中定义类的方式：
 ```
 
 对应输出的值是：
-![](http://pkskks1su.bkt.clouddn.com/15466119894594.jpg)
+![](http://cdn.jinyueyue.cn/15466119894594.jpg)
 
 ### 面向对象的封装
 
@@ -299,7 +299,7 @@ echo $xiaowang -> age;
 
 php 中只允许单继承，不能多继承，就是一个子类只能继承一个父类。
 
-![](http://pkskks1su.bkt.clouddn.com/15466152938769.jpg)
+![](http://cdn.jinyueyue.cn/15466152938769.jpg)
 
 在子类中允许对父类的方法进行重写（覆盖）和重载。
 
@@ -397,7 +397,7 @@ $man -> eat();
 
 #### 接口
 
-![](http://pkskks1su.bkt.clouddn.com/15466762225908.jpg)
+![](http://cdn.jinyueyue.cn/15466762225908.jpg)
 
 接口是对动作的抽象，表示对象能做什么。
 
@@ -476,15 +476,13 @@ php 连接数据库有两种方式，可以使用`MySQLi`和`PDO`，具体连接
 - [插入多条数据](http://www.runoob.com/php/php-mysql-insert-multiple.html)
 - [读取数据](http://www.runoob.com/php/php-mysql-select.html)
 
-**tips：**
+### 注意点
+
+- 在使用 PDO 执行数据库操作时，`host`，`dbname`的`=`左右两边不要写`=`
 
 ```php
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 ```
-
-在使用 PDO 执行数据库操作时，`host`，`dbname`的`=`左右两边不要写`=`。
-
-### 注意点
 
 - 一定要记得给 php 文件添加编码信息
 

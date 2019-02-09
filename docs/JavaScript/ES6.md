@@ -1,10 +1,8 @@
-# ES6 常用语法（持续补充）
+# ES6 常用语法
 
-[[toc]]
+![](../../images/ES6.png)
 
 **主要总结一些 ES6 常用的语法及知识点，其次就是总结一下在 ES6 使用过程需要注意的重点**
-
-![](http://pkskks1su.bkt.clouddn.com/15468287731380.jpg)
 
 ## 1. let 和 const
 
@@ -34,11 +32,11 @@ let a = 'test2'; // 报错
 
 ### 1.2 const
 
-`const`声明一个只读的变量，一旦声明，常量的值就不能改变。
+`const`声明一个只读的变量，一旦声明，常量的值就不能改变，其实不能改的是变量指向的地址。
 
 ```javascript
 const PI = 3.1415;
-PI; // 3.1415
+console.log(PI); // 3.1415
 
 PI = 3;
 // TypeError: Assignment to constant variable.
@@ -51,7 +49,7 @@ const foo;
 // SyntaxError: Missing initializer in const declaration
 ```
 
-`const`的错用于类似`let`，同样存在块级作用域，只有在指定的作用域内使用才会有效。
+`const`类似`let`，同样存在块级作用域，只有在指定的作用域内使用才会有效。
 
 ```javascript
 if (true) {
@@ -81,7 +79,7 @@ const message = 'Goodbye!';
 const age = 30;
 ```
 
-`const`的本质其实并不是变量的值不可以改动，而是变量指向的内存地址所保存的数据不能改变，对于简单类型的数据（数值，字符串，布尔值），值就会保存到指定的内存地址，其实内存地址等同于变量本身。但是对于复合类型的数据（数组，对象），变量指向的是内存地址，所以变量内的值是可以改变的，但是变量本身是不能改变的。
+`const`的本质其实并不是变量的值不可以改动，而是变量指向的内存地址所保存的数据不能改变，对于简单类型的数据（数值，字符串，布尔值），值就会保存到指定的内存地址，其实内存地址等同于变量本身。但是对于复合类型的数据（数组，对象），变量指向的是内存地址，所以对象内的值是可以改变的，但是对象本身是不能改变的。
 
 ```javascript
 const foo = {};
@@ -612,7 +610,7 @@ console.log(map);
 
 使用`set`给 Map 添加`key-value`，Map 的 key 可以是函数，也可以是对象。
 
-![](http://pkskks1su.bkt.clouddn.com/15468275661338.jpg)
+![](http://cdn.jinyueyue.cn/15468275661338.jpg)
 
 Map 对象也拥有像 Set 对象一些特有的方法和属性，比如`has()`，`delete()`，`get()`，`size`，`clear()`。
 

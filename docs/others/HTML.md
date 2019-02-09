@@ -28,9 +28,9 @@
 <footer></footer>
 ```
 
-**Tips:**
-
-> 尽量少些 html 标签，可以减少 dom 渲染的时间，减少整个文件大小
+:::tip
+尽量少些 html 标签，可以减少 dom 渲染的时间，减少整个文件大小
+:::
 
 ## 前端跨域
 
@@ -48,10 +48,10 @@
 2. DOM 无法获得
 3. Ajax 无法发送
 
-**Tips:**
-
-> 1. LocalStorage 大小 5M，但是使用 2.5M 以后会出现性能问题
-> 2. IndexedDB，web SQL：关系型数据库，有专门的 api 方法，大小 50M
+:::tip
+1. LocalStorage 大小 5M，但是使用 2.5M 以后会出现性能问题
+2. IndexedDB，web SQL：关系型数据库，有专门的 api 方法，大小 50M
+:::
 
 ### 如何 Cookie 共享
 
