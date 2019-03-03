@@ -1,59 +1,25 @@
-# 你不知道的 HTML
+# 前端跨域
 
-## 小常识
-
-1. 文件夹命名不要使用驼峰的方式，因为 linux 会识别驼峰的方式，驼峰会导致运维时常去切换大小写，容易找不到路径。
-
-## HTML 语义化
-
-1. 使用 div 进行布局，不要使用 div 进行无意义的包裹，p 和 div 都可以使用的同时，尽量使用 p 标签，不要使用 div
-2. 纯样式标签不要使用 b，font，使用 CSS 进行布局，需要强调的文本，可以使用 strong(加粗) 和 em(倾斜)
-3. H5 新增语义化标签：
-   - header
-   - nav
-   - article
-   - section
-   - footer
-   - aside
-
-示例结构：
-
-```html
-<header><nav></nav></header>
-<div class="content">
-  <section>1</section>
-  <section>2</section>
-  <aside></aside>
-</div>
-<footer></footer>
-```
-
-:::tip
-尽量少些 html 标签，可以减少 dom 渲染的时间，减少整个文件大小
-:::
-
-## 前端跨域
-
-### 导致跨域的原因：
+## 1. 导致跨域的原因：
 
 同源策略：域名，协议，端口都相同。
 
-### 为什么要有同源策略：
+## 2. 为什么要有同源策略：
 
 浏览器不同的域名是不可以访问 Cookie 的，防止 Cookie 被盗用，防止隐私泄露。如果 Cookie 可以共享，那安全性就会很低。
 
-### 同源策略限制的范围
+## 3. 同源策略限制的范围
 
 1. Cookie，LocalStorage（超过 2.5M 会出现性能问题），IndexedDB 无法读取。
 2. DOM 无法获得
 3. Ajax 无法发送
 
-:::tip
-1. LocalStorage 大小 5M，但是使用 2.5M 以后会出现性能问题
-2. IndexedDB，web SQL：关系型数据库，有专门的 api 方法，大小 50M
-:::
+**Tips:**
 
-### 如何 Cookie 共享
+> 1. LocalStorage 大小 5M，但是使用 2.5M 以后会出现性能问题
+> 2. IndexedDB，web SQL：关系型数据库，有专门的 api 方法，大小 50M
+
+## 4. 如何 Cookie 共享
 
 使用 document.domain 设置同源策略。
 前端设置方法：
@@ -72,7 +38,7 @@ baike.baidu.com  b.html
 Set-Cookie: key=value; domain=.example.com; path=/
 ```
 
-### 解决跨域的方式：
+## 5. 解决跨域的方式：
 
 - jsonp
 
@@ -102,7 +68,6 @@ jsonp 只能发送 GET 请求，jsonp 原理：
 跨域资源分享，允许任务类型的请求。
 
 - Nginx 配置跨域
-
 - img，iframe，script，link 标签没有被同源策略屏蔽
 
 ```js
@@ -119,5 +84,4 @@ image.onload = function() {
 ```
 
 - postMessage（iframe，img）
-
 - WebSocket

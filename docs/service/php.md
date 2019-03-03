@@ -4,9 +4,9 @@ php 上手比较容易，可以通过[菜鸟教程](http://www.runoob.com/php/ph
 
 ![](http://cdn.jinyueyue.cn/15466815349395.jpg)
 
-## php 基本概念
+## 1. php 基本概念
 
-### 数据类型
+### 1.1 数据类型
 
 php 中的数据类型和 js 的数据类型基本相同，将 js 中的`Number`区分成了浮点型和整型。
 
@@ -15,24 +15,28 @@ php 中的数据类型和 js 的数据类型基本相同，将 js 中的`Number`
   字符串拼接的方法有两种：
 
   1. 使用`.`拼接： `echo("hello " . $name);`
-
   2. 使用`{}`中书写变量的方式拼接：`echo "bye bye {$this -> name}";`
 
 - 整型
+
 - 浮点型
+
 - 布尔型
+
 - 数组
+
 - 对象
+
 - NULL
 
-### 引用其他 php 文件
+### 1.2 引用其他 php 文件
 
 - include
 - require
 - include_once
 - require_once
 
-### 变量
+### 1.3 变量
 
 定义变量时必须使用`$`。
 
@@ -50,7 +54,7 @@ $GLOBALS['a'] = '我是全局变量'
 echo $GLOBALS['a'];
 ```
 
-### 常量
+### 1.4 常量
 
 设置 php 中的常量使用`define`来定义，在定义的时候可以设置是否区分大小写。
 
@@ -60,15 +64,15 @@ echo $GLOBALS['a'];
 
 在 php 中定义常量后，默认是全局变量，可以再任何一个脚本的任何地方去使用。
 
-### 数组
+### 1.5 数组
 
-#### 定义数组
+#### 1.5.1 定义数组
 
 ```php
 $arr = array('first', 'second');
 ```
 
-#### 获取数组长度
+#### 1.5.2 获取数组长度
 
 ```php
 <?php
@@ -77,7 +81,7 @@ echo count($cars);
 ?>
 ```
 
-#### 遍历数组
+#### 1.5.3 遍历数组
 
 ```php
 <?php
@@ -92,7 +96,7 @@ for($x=0;$x<$arrlength;$x++)
 ?>
 ```
 
-#### 创建关联数组
+#### 1.5.4 创建关联数组
 
 ```php
 <?php
@@ -101,7 +105,7 @@ echo json_encode($age);
 ?>
 ```
 
-#### 遍历关联数组
+#### 1.5.5 遍历关联数组
 
 ```php
 <?php
@@ -117,9 +121,9 @@ foreach($age as $x=>$x_value)
 
 [传送门](http://www.runoob.com/php/php-arrays.html)
 
-## php 面向对象
+## 2. php 面向对象
 
-### 面向对象编程。
+### 2.1 面向对象编程。
 
 > 面向对象的特点：封装，继承，多态。
 
@@ -157,7 +161,7 @@ php 中定义类的方式：
 ?>
 ```
 
-### 构造方法和析构方法
+### 2.2 构造方法和析构方法
 
 类中有两个方法会自动执行，一个是构造方法，一个是析构方法，构造方法会在类被实例化的时候执行，析构方法会在类被销货，也就是不使用的时候执行。构造方法和析构方法都符合先实例化先执行的规范。
 
@@ -200,7 +204,7 @@ php 中定义类的方式：
 对应输出的值是：
 ![](http://cdn.jinyueyue.cn/15466119894594.jpg)
 
-### 面向对象的封装
+### 2.3 面向对象的封装
 
 在类中其实不光有`public`方法，还有`private`和`protected`方法，在封装一个类的时候，有些方法或者属性不希望在外边拿到，就可以定义成`private`或`protected`。
 
@@ -295,7 +299,7 @@ echo $xiaowang -> age;
 - `__isset()`：在外部使用`isset()`判断一个变量是否存在时，会触发类中的`__isset()`方法。
 - `__unset()`：在外部使用`unset()`删除一个私有或者被保护的变量时，会触发`__unset()`方法。虽然在外部不能操作私有或者被保护的变量，也就是不能删除，但是触发了`__unset()`方法后，我们可以在`__unset()`方法中对私有或者被保护的变量进行操作。
 
-### php 的继承和多态
+### 2.4 php 的继承和多态
 
 php 中只允许单继承，不能多继承，就是一个子类只能继承一个父类。
 
@@ -353,9 +357,9 @@ $xiaoming->getCard();
 ?>
 ```
 
-### 抽象方法与接口
+### 2.5 抽象方法与接口
 
-#### 抽象方法和抽象类
+#### 2.5.1 抽象方法和抽象类
 
 抽象方法：类中有一个方法，但是没有方法体，也就是没有花括号，直接以分号结束，必须使用`abstract`定义。
 
@@ -395,7 +399,7 @@ $man -> eat();
 ?>
 ```
 
-#### 接口
+#### 2.5.2 接口
 
 ![](http://cdn.jinyueyue.cn/15466762225908.jpg)
 
@@ -462,13 +466,13 @@ $man -> eat();
 ?>
 ```
 
-## 数据库相关
+## 3 数据库相关
 
-### 如何连接
+### 3.1 如何连接
 
 php 连接数据库有两种方式，可以使用`MySQLi`和`PDO`，具体连接方式看菜鸟教程。[传送门](http://www.runoob.com/php/php-mysql-connect.html)
 
-### MySQL 相关
+### 3.2 MySQL 相关
 
 - [创建数据库](http://www.runoob.com/php/php-mysql-create.html)
 - [创建表](http://www.runoob.com/php/php-mysql-create-table.html)
@@ -476,13 +480,15 @@ php 连接数据库有两种方式，可以使用`MySQLi`和`PDO`，具体连接
 - [插入多条数据](http://www.runoob.com/php/php-mysql-insert-multiple.html)
 - [读取数据](http://www.runoob.com/php/php-mysql-select.html)
 
-### 注意点
-
-- 在使用 PDO 执行数据库操作时，`host`，`dbname`的`=`左右两边不要写`=`
+**tips：**
 
 ```php
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 ```
+
+在使用 PDO 执行数据库操作时，`host`，`dbname`的`=`左右两边不要写`=`。
+
+### 3.3 注意点
 
 - 一定要记得给 php 文件添加编码信息
 
@@ -501,6 +507,7 @@ $conn->query("set names utf8");
 
 ```php
 $sql = "INSERT INTO news (title, content) VALUES ('{$title}', '{$content}')";
+
 ```
 
 - 获取前端传入的参数
@@ -510,3 +517,13 @@ $sql = "INSERT INTO news (title, content) VALUES ('{$title}', '{$content}')";
 1. `$_GET`：获取 get 传参
 2. `$_POST`：获取 post 传参
 3. `$_REQUEST`：万能，get 和 post 都可以获取到
+
+## 4. 其他
+
+### 4.1 定义类名重复怎么办
+
+如果定义了两个相同的类名，我们可以添加`namespace`来避免类名重复。如果没有添加`namespace`的话，那就代表这个类是属于顶层类的。
+
+如果在同一个文件中，需要引用不同命名空间下的相同类名的类方法，可以使用：`use 命名空间\类名;`来使用不同命名空间下的类。还可以给不同的类添加别名：`use 命名空间\类名 as 别名;`，在定义了别名之后，我们下面实例化的时候就可以直接实例化别名了，就代表着指定命名空间下的类。
+
+如果想使用顶层类，那只需要在实例化类名时，在类名之前添加`\`就行。

@@ -2,6 +2,8 @@
 
 洋葱圈模型，当遇到 next 时，暂停当前函数，执行下一个中间件，当下游没有中间件执行时，将从最后一个中间件继续向上执行。
 
+![](http://cdn.jinyueyue.cn/15504799167509.jpg)
+
 绕过 koa 的 response 处理是不被支持的，应该注意不要使用一下 node 属性：
 
 - res.statusCode

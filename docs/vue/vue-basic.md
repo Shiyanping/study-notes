@@ -159,7 +159,9 @@ Vue.component('child', { data: function () { return { list: [{ id: 1, name: 'shi
 
 #### 动态组件
 
+```html
 <component :is="切换变量"></component>
+```
 
 #### v-once
 

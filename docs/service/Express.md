@@ -7,9 +7,7 @@ Express 是一个简洁而灵活的 node.js Web 应用框架, 提供了一系列
 使用 Express 可以快速地搭建一个完整功能的网站。
 
 - 可以设置中间件来响应 HTTP 请求。
-
 - 定义了路由表用于执行不同的 HTTP 请求动作。
-
 - 可以通过向模板传递参数来动态渲染 HTML 页面。
 
 ## 2. 使用方法
@@ -23,17 +21,13 @@ req 和 res 常用到一些方法。
 **req：**
 
 - req.query()：获取 url 后?传参
-
 - req.params()：获取 url 后动态传参（/index/:id 的形式）
 
 **res：**
 
 - res.send()：输出一定的内容
-
 - res.json()：格式化返回结果
-
 - res.redirect()：重定向到某个链接
-
 - res.render()：使用 node 模板渲染时使用
 
 ```js
@@ -412,4 +406,4 @@ arr = [1, 2, 3]
 ```
 
 > 参考文献
-> [http://www.iqianduan.net/blog/how_to_use_swig](http://www.iqianduan.net/blog/how_to_use_swig)
+> [http://www.iqianduan.net/blog/how_to_use_swig](

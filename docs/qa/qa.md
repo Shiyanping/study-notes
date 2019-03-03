@@ -1,7 +1,5 @@
 # JavaScript & QA 测试
 
-![](../../images/QA.png)
-
 测试方法有很多种，测试方面也有很多，主要的测试包括：单元测试，性能测试，功能测试，安全测试。
 
 当前测试工程师分为：黑盒和白盒。
@@ -230,7 +228,7 @@ backstop test
 
 会自动输出一个报表，放到`backstop_data/html_report`下，里面有自己写的网页和 UI 图不同的地方。
 
-#### 1.3.2 [phantomCSS](https://github.com/HuddleEng/PhantomCSS)
+#### 1.3.2 [phantomCSS](https://github.com/HuddleEng/PhantomCSS
 
 phantomJS 的兄弟，专门用作 UI 走查。
 

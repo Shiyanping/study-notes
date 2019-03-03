@@ -2,7 +2,7 @@
 
 ## 1. 概述
 
-[Yii](https://www.kancloud.cn/manual/yii2-guide) 是典型的 `MVC` 模式开发，有利于学习 `MVC` 模式。
+[Yii](https://www.kancloud.cn/manual/yii2-guide)是典型的 `MVC` 模式开发，有利于学习 `MVC` 模式。
 
 > MVC：model，view，controller
 > models：业务模型

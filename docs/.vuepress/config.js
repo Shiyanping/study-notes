@@ -35,7 +35,7 @@ module.exports = {
       {
         title: '你不知道的 JavaScript',
         collapsable: true,
-        children: ['JavaScript/type-of-data', 'JavaScript/scope-closure', 'JavaScript/prototype', 'JavaScript/async', 'JavaScript/strict-json', 'JavaScript/ES6']
+        children: ['JavaScript/type-of-data', 'JavaScript/scope-closure', 'JavaScript/prototype', 'JavaScript/async', 'JavaScript/strict-json', 'JavaScript/ES6', 'JavaScript/function-program']
       },
       {
         title: 'CSS 的世界',
@@ -43,39 +43,59 @@ module.exports = {
         children: ['css/CSS']
       },
       {
-        title: '框架全解析',
+        title: 'HTML',
         collapsable: true,
-        children: ['frames/jQuery', 'frames/mvvm', 'frames/virtual-dom', 'frames/vue-basic', 'frames/vue-animation', 'frames/React']
+        children: ['html/html']
       },
       {
-        title: '后端知识概况',
+        title: 'Vue',
         collapsable: true,
-        children: ['service/View-Model', 'service/simple-understand', 'service/linux-often-cmd', 'service/web-server']
+        children: ['vue/mvvm', 'vue/virtual-dom', 'vue/vue-basic', 'vue/vue-animation']
+      },
+      {
+        title: '服务器端常识',
+        collapsable: true,
+        children: ['service/simple-understand', 'service/linux-often-cmd', 'service/linux-password', 'service/process', 'service/mysql', ]
       },
       {
         title: 'Node 半知半解',
         collapsable: true,
-        children: ['node/Node', 'node/mvc', 'node/Express', 'node/Koa', 'node/package-json', 'node/npm']
+        children: ['service/Node', 'service/mvc', 'service/Express', 'service/Koa', 'service/package-json', 'service/npm']
       },
       {
         title: '世界上最好的语言 PHP',
         collapsable: true,
-        children: ['php/php', 'php/Yii']
+        children: ['service/php', 'service/Yii']
       },
       {
-        title: '网络相关',
+        title: '网络协议',
         collapsable: true,
-        children: ['internet/http']
+        children: ['internet/http', 'internet/optimization']
       },
       {
-        title: '其他补充知识',
+        title: '浏览器知识',
         collapsable: true,
-        children: ['others/HTML', 'others/QA', 'others/function-program']
+        children: ['browser/corss-domain']
       },
       {
-        title: '习题集',
+        title: '自动化测试',
         collapsable: true,
-        children: ['question/JS']
+        children: ['qa/qa']
+      },
+      {
+        title: '性能优化',
+        collapsable: true,
+        children: ['performance/performance']
+      },
+      {
+        title: '工程化',
+        collapsable: true,
+        children: ['engineering/CI']
+      },
+      {
+        title: '软件工程学',
+        collapsable: true,
+        children: ['basis/git']
       }
     ]
   }

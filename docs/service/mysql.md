@@ -1,60 +1,62 @@
-# mysql
+# MySql
 
-## 安装 mysql
+## 1. 安装 mysql
 
 ```bash
 brew install mysql
 ```
 
-## 启动 mysql
+## 2. 启动 mysql
 
 ```sql
 mysql.server start
 ```
 
-## 登录 mysql
+## 3. 登录 mysql
 
 ```sql
 mysql -u root
 ```
 
-## 新建数据库
+## 4. 常用命令
+
+### 4.1 新建数据库
 
 ```sql
 create database cAuth;
 ```
 
-## 新建表
+### 4.2 新建表
 
 ```sql
 create table testTable(id int,name varchar(100));
 ```
 
-## 描述表的内容
+### 4.3 描述表的内容
 
 ```sql
 desc tableName;
 ```
 
-## 删除表
+### 4.4 删除表
 
 ```sql
 drop table tableName;
 ```
 
-## 使用数据库
+### 4.5 使用数据库
 
 ```sql
 use cAuth;
 ```
 
-## 查看有哪些表
+### 4.6 查看有哪些表
 
 ```sql
 show tables;
 ```
 
-## 查询表内容及 SQL 方法
+### 4.7 查询表内容及 SQL 方法
 
 - 查询表内所有的信息
 
@@ -115,6 +117,7 @@ WHERE 筛选的字段名 BETWEEN 区间一 AND 区间二;
 SELECT * FROM 表名
 WHERE 筛选的字段名 > 区间一
 AND 筛选的字段名 < 区间二;
+
 ```
 
 - 模糊查询
@@ -126,6 +129,7 @@ WHERE 查询的字段名 LIKE '%X%';
 -- 'X%'：以某个字符开头
 -- '%X'：以某个字符结尾
 -- '%X%'：前后不限，只要含有X即可
+
 ```
 
 - 排序
@@ -135,6 +139,7 @@ SELECT * FROM 表名
 ORDER BY 需要根据哪个字段排序 DESC;
 -- DESC：降序
 -- ASC：升序，可以省略
+
 ```
 
 - 连表查询
@@ -148,6 +153,5 @@ WHERE 连接条件(如：t_books.library_id = t_library.library_id);
 SELECT 需要的字段(逗号连接)
 FROM 表1 LEFT JOIN 表2
 ON 连接条件(如：t_books.library_id = t_library.library_id);
-```
 
-> 豆瓣 api：https://douban.uieee.com/v2/book/1220562
+```

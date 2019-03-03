@@ -34,7 +34,7 @@ MVC 是一种模式，但是并不是设计模式，而是架构模式。
 
 Model 只和 Controller 交互，Controller 负责控制用户行为和 View 进行交互。
 
-## 目录结构
+## 3. 目录结构
 
 assets：静态资源
 config：配置文件
